@@ -8,6 +8,7 @@ namespace SistemaDeComentariosBackend.Entitites
         [Required]
         public string? Title { get; set; }
         [Required]
+        [Url]
         public string? Url { get; set; }
         [Required]
         public int UserId { get; set; }
