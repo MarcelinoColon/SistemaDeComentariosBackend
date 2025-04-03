@@ -20,6 +20,9 @@ namespace SistemaDeComentariosBackend.Repository
         public async Task<Image> GetById(int id) =>
             await _context.Images.FindAsync(id);
 
+        public async Task<bool> ExistById(int imageId)
+            => await _context.Images.AnyAsync(i => i.Id == imageId);
+
         public async Task Save() =>
             await _context.SaveChangesAsync();
     }

@@ -1,14 +1,20 @@
 using Microsoft.EntityFrameworkCore;
 using SistemaDeComentariosBackend.Repository;
+using SistemaDeComentariosBackend.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+//Services
+builder.Services.AddTransient<IUsersServices, UsersServices>();
+builder.Services.AddScoped<ICommentServices, CommentServices>();
 
 
 //Repositories
 builder.Services.AddScoped<IImageRepository, ImageRepository>();
+builder.Services.AddScoped<ICommentRepository, CommentRepository>();
+
+
 
 // DBContext
 builder.Services.AddDbContext<AppDbContext>(op =>
