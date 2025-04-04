@@ -30,12 +30,27 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+//Area de Middlewares
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+//Se crea un metodo asyncrono, recibe dos variables la primera es el controlador y la segunda una para invocar el siguiente middleware
+app.Use(async (contexto, next) =>
+{
+    //Viene la peticion
+    var logger = contexto.RequestServices.GetRequiredService<ILogger<Program>>();
+    logger.LogInformation($"Peticion: {contexto.Request.Method} {contexto.Request.Path}");
+
+    await next.Invoke();
+
+    //se va la respuesta
+
+    logger.LogInformation($"Respuesta: {contexto.Response.StatusCode}");
+});
 
 app.UseHttpsRedirection();
 
