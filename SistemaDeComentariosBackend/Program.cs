@@ -7,7 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 //Services
 builder.Services.AddTransient<IUsersServices, UsersServices>();
-builder.Services.AddScoped<ICommentServices, CommentServices>();
+builder.Services.AddScoped<ICommentsServices, CommentsServices>();
+builder.Services.AddScoped<IImagesServices, ImagesServices>();
 
 
 //Repositories

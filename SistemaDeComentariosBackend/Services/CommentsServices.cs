@@ -3,12 +3,12 @@ using SistemaDeComentariosBackend.Repository;
 
 namespace SistemaDeComentariosBackend.Services
 {
-    public class CommentServices : ICommentServices
+    public class CommentsServices : ICommentsServices
     {
         private readonly IImageRepository _imageRepository;
         private readonly ICommentRepository _commentRepository;
         private readonly IUsersServices _userServices;
-        public CommentServices(IImageRepository imageRepository,
+        public CommentsServices(IImageRepository imageRepository,
                                ICommentRepository commentRepository,
                                IUsersServices usersServices)
         {

@@ -5,10 +5,10 @@ namespace SistemaDeComentariosBackend.Entitites
 {
     public class Comment
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         [Required]
-        public string? Description { get; set; }
-        public DateTime Date { get; set; }
+        public string? Body { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now;
         public int UserId { get; set; }
         public int ImageId { get; set; }
         public Image? Image { get; set; }

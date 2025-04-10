@@ -16,7 +16,7 @@ namespace SistemaDeComentariosBackend.Repository
             return await _context.Comments.Select(comment =>
             new Comment
             {
-                Description = comment.Description,
+                Body = comment.Body,
                 Date = comment.Date,
                 Id = comment.Id,
                 ImageId = comment.ImageId,

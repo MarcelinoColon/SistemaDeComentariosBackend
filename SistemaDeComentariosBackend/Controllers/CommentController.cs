@@ -2,7 +2,7 @@
 
 namespace SistemaDeComentariosBackend.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/image/{imageId:int}/[controller]")]
     [ApiController]
     public class CommentController : ControllerBase
     {
