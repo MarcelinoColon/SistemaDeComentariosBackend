@@ -17,7 +17,7 @@ namespace SistemaDeComentariosBackend.Repository
         public async Task<IEnumerable<Image>> GetAll() =>
             await _context.Images.ToListAsync();
 
-        public async Task<Image> GetById(int id) =>
+        public async Task<Image?> GetById(int id) =>
             await _context.Images.FindAsync(id);
 
         public async Task<bool> ExistById(int imageId)

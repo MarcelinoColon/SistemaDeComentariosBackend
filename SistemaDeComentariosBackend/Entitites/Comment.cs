@@ -7,7 +7,7 @@ namespace SistemaDeComentariosBackend.Entitites
     {
         public Guid Id { get; set; }
         [Required]
-        public string? Body { get; set; }
+        public required string Body { get; set; }
         public DateTime Date { get; set; } = DateTime.Now;
         public int UserId { get; set; }
         public int ImageId { get; set; }

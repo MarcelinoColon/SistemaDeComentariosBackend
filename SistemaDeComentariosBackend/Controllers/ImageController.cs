@@ -26,6 +26,7 @@ namespace SistemaDeComentariosBackend.Controllers
 
             return Ok(Images);
         }
+
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Image>> GetById(int id)
         {

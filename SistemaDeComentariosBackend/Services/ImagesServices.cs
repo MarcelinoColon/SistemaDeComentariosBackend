@@ -17,9 +17,15 @@ namespace SistemaDeComentariosBackend.Services
             return images;
         }
 
-        public async Task<Image> GetById(int id)
+        public async Task<Image?> GetById(int id)
         {
             var image = await _imageRepository.GetById(id);
+
+            if(image is null)
+            {
+                return null;
+            }
+
             return image;
         }
         public async Task Add(Image image)

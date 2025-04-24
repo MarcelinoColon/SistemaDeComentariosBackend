@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SistemaDeComentariosBackend.Repository;
 using SistemaDeComentariosBackend.Services;
@@ -5,6 +6,11 @@ using SistemaDeComentariosBackend.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+//Login Sistem
+
+
+
 //Services
 builder.Services.AddTransient<IUsersServices, UsersServices>();
 builder.Services.AddScoped<ICommentsServices, CommentsServices>();
@@ -27,7 +33,7 @@ builder.Services.AddDbContext<AppDbContext>(op =>
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
 
 var app = builder.Build();
 
@@ -35,8 +41,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+
 }
 
 //Se crea un metodo asyncrono, recibe dos variables la primera es el controlador y la segunda una para invocar el siguiente middleware
