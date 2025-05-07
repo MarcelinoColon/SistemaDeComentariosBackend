@@ -1,6 +1,6 @@
 ﻿
 
-using SistemaDeComentariosBackend.DTOs;
+using Shared.DTOs;
 
 namespace SistemaDeComentariosBackend.Services
 {

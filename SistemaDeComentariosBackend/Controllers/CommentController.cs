@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SistemaDeComentariosBackend.DTOs;
+using Shared.DTOs;
 using SistemaDeComentariosBackend.Services;
 
 namespace SistemaDeComentariosBackend.Controllers
@@ -45,6 +45,10 @@ namespace SistemaDeComentariosBackend.Controllers
 
             return CreatedAtAction(nameof(GetImageCommentById), new { imageId = imageId, Id = commentDto.Id }, commentDto);
         }
-
+        //[HttpPut("{id:int}")]
+        //public async Task<ActionResult<CommentDto>>UpdateImageComment(int imageId, Guid id)
+        //{
+        //    var image = _imagesServices.GetById(imageId);
+        //}
     }
 }

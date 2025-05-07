@@ -1,10 +1,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using SistemaDeComentariosBackend.Repository;
 using SistemaDeComentariosBackend.Services;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var MyCors = "MyCors";
 // Add services to the container.
 
 //Login Sistem
@@ -29,6 +30,15 @@ builder.Services.AddDbContext<AppDbContext>(op =>
     op.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
 
+//Cors
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(MyCors, builder =>
+    {
+        builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+    });
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -57,6 +67,9 @@ app.Use(async (contexto, next) =>
 
     logger.LogInformation($"Respuesta: {contexto.Response.StatusCode}");
 });
+
+//Cors
+app.UseCors(MyCors);
 
 app.UseHttpsRedirection();
 

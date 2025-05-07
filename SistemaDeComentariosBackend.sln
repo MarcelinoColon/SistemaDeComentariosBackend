@@ -5,6 +5,10 @@ VisualStudioVersion = 17.13.35818.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaDeComentariosBackend", "SistemaDeComentariosBackend\SistemaDeComentariosBackend.csproj", "{518138C6-99A9-4162-AEE9-0A6820B5A99F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{881F932B-EB42-4C52-8980-464D663B66A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaDeComentariosFrontend", "SistemaDeComentariosFrontend\SistemaDeComentariosFrontend.csproj", "{63251ACE-90FF-4220-9CBB-FF8DAA00D688}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{518138C6-99A9-4162-AEE9-0A6820B5A99F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{518138C6-99A9-4162-AEE9-0A6820B5A99F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{518138C6-99A9-4162-AEE9-0A6820B5A99F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{881F932B-EB42-4C52-8980-464D663B66A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{881F932B-EB42-4C52-8980-464D663B66A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{881F932B-EB42-4C52-8980-464D663B66A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{881F932B-EB42-4C52-8980-464D663B66A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63251ACE-90FF-4220-9CBB-FF8DAA00D688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63251ACE-90FF-4220-9CBB-FF8DAA00D688}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63251ACE-90FF-4220-9CBB-FF8DAA00D688}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63251ACE-90FF-4220-9CBB-FF8DAA00D688}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
-using SistemaDeComentariosBackend.DTOs;
+using Shared.DTOs;
 using SistemaDeComentariosBackend.Entitites;
 using SistemaDeComentariosBackend.Repository;
 

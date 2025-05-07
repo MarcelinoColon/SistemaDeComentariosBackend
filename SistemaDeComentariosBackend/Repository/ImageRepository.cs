@@ -15,10 +15,12 @@ namespace SistemaDeComentariosBackend.Repository
             await _context.Images.AddAsync(image);
 
         public async Task<IEnumerable<Image>> GetAll() =>
-            await _context.Images.ToListAsync();
+            await _context.Images.Include(i => i.Comments).ToListAsync();
 
         public async Task<Image?> GetById(int id) =>
-            await _context.Images.FindAsync(id);
+            await _context.Images.Include(i => i.Comments).Where(x => x.Id == id).FirstOrDefaultAsync();
+        public void Update(Image image)=> 
+            _context.Images.Update(image);
 
         public async Task<bool> ExistById(int imageId)
             => await _context.Images.AnyAsync(i => i.Id == imageId);

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Shared.DTOs;
 using SistemaDeComentariosBackend.Entitites;
 using SistemaDeComentariosBackend.Repository;
 using SistemaDeComentariosBackend.Services;
@@ -11,48 +12,51 @@ namespace SistemaDeComentariosBackend.Controllers
     public class ImageController : ControllerBase
     {
         private readonly IImagesServices _imagesServices;
-        private readonly IImageRepository _imageRepository;
+        private readonly ICommentsServices _commentsServices;
         public ImageController(IImagesServices imagesServices,
-                               IImageRepository imageRepository)
+                               ICommentsServices commentsServices)
         {
             _imagesServices = imagesServices;
-            _imageRepository = imageRepository;
+            _commentsServices = commentsServices;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Image>>> GetAll()
+        public async Task<ActionResult<IEnumerable<ImageDto>>> GetAll()
         {
-            var Images = await _imagesServices.GetAll();
+            var imagesDto = await _imagesServices.GetAll();
 
-            return Ok(Images);
+            return Ok(imagesDto);
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<Image>> GetById(int id)
+        public async Task<ActionResult<ImageDto>> GetById(int id)
         {
-            var image = await _imagesServices.GetById(id);
+            var imageDto = await _imagesServices.GetById(id);
 
-            if(image is null)
+            if(imageDto is null)
             {
                 return NotFound();
             }
 
-            return Ok(image);
+            return Ok(imageDto);
         }
 
         [HttpPost]
-        public async Task<ActionResult> Add(Image image)
+        public async Task<ActionResult> Add(ImageInsertDto imageInsertDto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            await _imagesServices.Add(image);
+            var imageDto = await _imagesServices.Add(imageInsertDto);
 
-            await _imageRepository.Save();
+            if (imageDto is null)
+            {
+                return BadRequest();
+            }
 
-            return Ok();
+            return CreatedAtAction(nameof(GetById), new {id= imageDto.Id}, imageDto);
         }
     }
 }

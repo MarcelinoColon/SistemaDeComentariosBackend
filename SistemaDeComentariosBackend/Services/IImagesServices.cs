@@ -1,11 +1,12 @@
 ﻿using SistemaDeComentariosBackend.Entitites;
+using Shared.DTOs;
 
 namespace SistemaDeComentariosBackend.Services
 {
     public interface IImagesServices
     {
-        Task Add(Image image);
-        Task<IEnumerable<Image>> GetAll();
-        Task<Image> GetById(int id);
+        Task<ImageDto?> Add(ImageInsertDto imageInsertDto);
+        Task<IEnumerable<ImageDto>?> GetAll();
+        Task<ImageDto?> GetById(int id);
     }
 }
